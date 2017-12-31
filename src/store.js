@@ -5,7 +5,8 @@ import promiseMiddleware from 'redux-promise-middleware';
 import rootReducer from './reducers';
 
 const store = createStore(rootReducer,
-  applyMiddleware(thunk, promiseMiddleware())
+    applyMiddleware(thunk, promiseMiddleware()),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
 );
 
 export default store;

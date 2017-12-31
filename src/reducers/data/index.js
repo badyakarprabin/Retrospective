@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import data from './data';
+import rows from './rows';
 
 export default combineReducers({
-    data
+    rows
 });

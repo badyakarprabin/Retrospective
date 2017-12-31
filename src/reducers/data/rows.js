@@ -1,10 +1,8 @@
-import { ADD_ROWS } from '../../actions/rows';
+import { ADD_GOOD_ROWS, ADD_IMPROVEMENT_ROWS } from '../../actions/rows';
 
 const INITIAL_STATE = {
-  rows: {
-    good: [1],
-    improvements: [1]
-  }
+  good: [1],
+  improvements: [1]
 };
 
 /**
@@ -16,11 +14,16 @@ const INITIAL_STATE = {
  */
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
-    case ADD_ROWS:
+
+    case ADD_GOOD_ROWS:
       return {
         ...state,
-        user: action.payload.data,
-        isLoading: false
+        good: action.payload.good
+      };
+    case ADD_IMPROVEMENT_ROWS:
+      return {
+        ...state,
+        improvements: action.payload.improvements,
       };
     default:
       return state;
