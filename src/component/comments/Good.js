@@ -1,39 +1,41 @@
 import React from 'react';
+import { compose } from 'recompose';
 import { connect } from 'react-redux';
-import { Col, Button, ControlLabel } from 'react-bootstrap';
+import { Element } from 'react-scroll';
+import { Field, reduxForm } from 'redux-form';
+import { Col, Button, Panel } from 'react-bootstrap';
 
 import InputField from '../common/InputField';
 import { addGoodRowsAction } from '../../actions/rows';
 
 const GoodField = (props) => {
-  const { good } = props.rows;
 
   return (
-    < div >
-      <Col lg={12} xs={12}>
-        <ControlLabel>Mention good things :</ControlLabel>
-      </Col>
-      <Col xs={8} lg={8}>
-        {
-          good && good.map((item, index) => (
-            <InputField key={index} placeholder='What need right' />
-          ))
-        }
-      </Col>
-      <Col xs={4} lg={4}>
-        <Button block
-          onClick={() => {
-            good.push(1);
-            props.addGoodRowsAction(
-              {
-                good: good
-              }
-            )
-          }
-          }>
-          Add More</Button>
-      </Col>
-    </div >
+    <Element name="good" className="good">
+      <Panel header='Mention good things :' bsStyle="success">
+        <Col xs={10} lg={10}>
+          <Field
+            name="details1"
+            component={InputField}
+            placeholder='What need right'
+          />
+          <Field
+            name="details2"
+            component={InputField}
+            placeholder='What need right'
+          />
+          <Field
+            name="details3"
+            component={InputField}
+            placeholder='What need right'
+          />
+        </Col>
+        <Col xs={2} xsOffset={10} >
+          <Button bsStyle="success">
+            Submit your review</Button>
+        </Col>
+      </Panel>
+    </Element>
   )
 }
 
@@ -45,4 +47,19 @@ const mapDispatchToProps = {
   addGoodRowsAction
 }
 
-export default (connect(mapStateToProps, mapDispatchToProps)(GoodField));
+const enhance = compose(
+  // withProps(() => ({
+  //   initialValues: {
+  //     details: 'dfdfdfdfdf',
+  //   }
+  // })),
+
+  connect(mapStateToProps, mapDispatchToProps),
+
+  reduxForm({
+    form: 'addNoteForm',
+    enableReinitialize: true,
+  })
+)
+
+export default enhance(GoodField);

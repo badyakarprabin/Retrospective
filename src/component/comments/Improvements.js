@@ -1,39 +1,40 @@
 import React from 'react';
+import { compose } from 'recompose';
 import { connect } from 'react-redux';
-import { Col, Button, ControlLabel } from 'react-bootstrap';
+import { Element } from 'react-scroll';
+import { Field, reduxForm } from 'redux-form';
+import { Col, Button, Panel } from 'react-bootstrap';
 
 import InputField from '../common/InputField';
 import { addImprovementRowsAction } from '../../actions/rows';
 
 const ImprovementField = (props) => {
-  const { improvements } = props.rows;
 
   return (
-    < div >
-      <Col lg={12} xs={12}>
-        <ControlLabel>Mention good things :</ControlLabel>
-      </Col>
-      <Col xs={8} lg={8}>
-        {
-          improvements && improvements.map((item, index) => (
-            <InputField key={index} placeholder="What needs more improvements ?" />
-          ))
-        }
-      </Col>
-      <Col xs={4} lg={4}>
-        <Button block
-          onClick={() => {
-            improvements.push(1);
-            props.addImprovementRowsAction(
-              {
-                improvements: improvements
-              }
-            )
-          }
-          }>
-          Add More</Button>
-      </Col>
-    </div >
+    <Element name="improvement" className="improvement">
+      <Panel header='Mention good things :' bsStyle="primary">
+        <Col xs={10} lg={10}>
+          <Field
+            name="improvements"
+            component={InputField}
+            placeholder='What need improvement'
+          />
+          <Field
+            name="improvements1"
+            component={InputField}
+            placeholder='What need improvement'
+          />
+          <Field
+            name="improvements2"
+            component={InputField}
+            placeholder='What need improvement'
+          />
+        </Col>
+        <Col xs={2} xsOffset={10} >
+          <Button bsStyle="info">Submit your review</Button>
+        </Col>
+      </Panel>
+    </Element >
   )
 }
 
@@ -45,4 +46,14 @@ const mapDispatchToProps = {
   addImprovementRowsAction
 }
 
-export default (connect(mapStateToProps, mapDispatchToProps)(ImprovementField));
+const enhance = compose(
+
+  connect(mapStateToProps, mapDispatchToProps),
+
+  reduxForm({
+    form: 'improvment',
+    enableReinitialize: true
+  })
+)
+
+export default enhance(ImprovementField);
