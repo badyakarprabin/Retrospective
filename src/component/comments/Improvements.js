@@ -1,5 +1,5 @@
 import React from 'react';
-import { compose } from 'recompose';
+import { compose, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
 import { Element } from 'react-scroll';
 import { Field, reduxForm } from 'redux-form';
@@ -23,7 +23,7 @@ const ImprovementField = (props) => {
           </ListGroupItem>
           <ListGroupItem>
             <Field
-              name="improvements"
+              name="improvements1"
               component={InputField}
               placeholder='What need improvement'
             />
@@ -37,7 +37,7 @@ const ImprovementField = (props) => {
           </ListGroupItem>
         </ListGroup>
         <Col xs={2} xsOffset={10} >
-          <Button bsStyle="info" onClick={() => props.addImprovementRowsAction({ isSubmitted: true })}>Submit your review</Button>
+          <Button bsStyle="info" onClick={props.handleSubmit(props.submitResponse)}>Submit your review</Button>
         </Col>
       </Panel>
     </Element >
@@ -55,6 +55,18 @@ const mapDispatchToProps = {
 const enhance = compose(
 
   connect(mapStateToProps, mapDispatchToProps),
+
+  withHandlers({
+    submitResponse: (props) => (formData) => {
+      const improvementPoints = Object.keys(formData).map(item => {
+        return formData[item]
+      })
+      props.addImprovementRowsAction({
+        isSubmitted: true,
+        points: improvementPoints
+      })
+    }
+  }),
 
   reduxForm({
     form: 'improvment',

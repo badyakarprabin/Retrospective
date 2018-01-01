@@ -1,5 +1,5 @@
 import React from 'react';
-import { compose } from 'recompose';
+import { compose, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
 import { Element, Link } from 'react-scroll';
 import { Field, reduxForm } from 'redux-form';
@@ -37,7 +37,11 @@ const GoodField = (props) => {
           </ListGroupItem>
         </ListGroup>
         <Col xs={2} xsOffset={10} >
-          <Button bsStyle="success" onClick={() => props.addGoodRowsAction({ isSubmitted: true })}>Submit your review</Button>
+          <Button bsStyle="success" onClick={props.handleSubmit(props.submitResponse)} >
+            <Link activeClass="active" to="improvement" spy={true} smooth={true} offset={-100} duration={500}>
+              Submit your review
+           </Link>
+          </Button>
         </Col>
       </Panel>
       <Col xs={1} xsOffset={11} >
@@ -51,7 +55,7 @@ const GoodField = (props) => {
           </ButtonGroup>
         </ButtonToolbar>
       </Col>
-    </Element>
+    </Element >
   )
 }
 
@@ -66,6 +70,19 @@ const mapDispatchToProps = {
 const enhance = compose(
 
   connect(mapStateToProps, mapDispatchToProps),
+
+  withHandlers({
+
+    submitResponse: (props) => (formData) => {
+      const goodPoints = Object.keys(formData).map(item => {
+        return formData[item]
+      })
+      props.addGoodRowsAction({
+        isSubmitted: true,
+        points: goodPoints
+      })
+    }
+  }),
 
   reduxForm({
     form: 'addNoteForm',

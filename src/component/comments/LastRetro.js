@@ -16,8 +16,10 @@ const ImageList = (props) => (
                     'zoom': props.mood.id === index
                 });
                 return (
-                    <img key={index} src={image.name} className={isZoomed} alt={image.description}
-                        onClick={() => props.selectMood(image, index)} />
+                    <Link key={index} activeClass="active" to="good" spy={true} smooth={true} offset={-100} duration={500}>
+                        <img title={image.description} src={image.name} className={isZoomed} alt={image.description}
+                            onClick={() => props.selectMood(image, index)} />
+                    </Link>
                 )
             })
         }
