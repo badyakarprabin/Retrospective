@@ -1,8 +1,12 @@
 import { ADD_GOOD_ROWS, ADD_IMPROVEMENT_ROWS } from '../../actions/rows';
 
 const INITIAL_STATE = {
-  good: [1],
-  improvements: [1]
+  good: {
+    isSubmitted: false
+  },
+  improvements: {
+    isSubmitted: false
+  }
 };
 
 /**
@@ -18,12 +22,12 @@ export default function (state = INITIAL_STATE, action) {
     case ADD_GOOD_ROWS:
       return {
         ...state,
-        good: action.payload.good
+        good: action.payload
       };
     case ADD_IMPROVEMENT_ROWS:
       return {
         ...state,
-        improvements: action.payload.improvements,
+        improvements: action.payload,
       };
     default:
       return state;

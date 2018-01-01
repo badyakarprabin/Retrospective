@@ -37,7 +37,7 @@ const ImprovementField = (props) => {
           </ListGroupItem>
         </ListGroup>
         <Col xs={2} xsOffset={10} >
-          <Button bsStyle="info">Submit your review</Button>
+          <Button bsStyle="info" onClick={() => props.addImprovementRowsAction({ isSubmitted: true })}>Submit your review</Button>
         </Col>
       </Panel>
     </Element >

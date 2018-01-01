@@ -13,12 +13,12 @@ const Header = () => {
             </Navbar.Header>
             <Nav>
                 <NavItem eventKey={1}>
-                    <Link activeClass="active" to="good" spy={true} smooth={true} offset={-100} duration={500}>
+                    <Link activeClass="active" to="good" spy={true} smooth={true} offset={-200} duration={500}>
                         Good
                         </Link>
                 </NavItem>
                 <NavItem eventKey={2}>
-                    <Link activeClass="active" to="improvement" spy={true} smooth={true} offset={-100} duration={500}>
+                    <Link activeClass="active" to="improvement" spy={true} smooth={true} offset={-200} duration={500}>
                         Improvements
                     </Link>
                 </NavItem>

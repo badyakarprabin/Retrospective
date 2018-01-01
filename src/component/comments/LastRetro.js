@@ -8,24 +8,27 @@ import { compose, withHandlers } from 'recompose';
 import { images } from '../../constant/images';
 import { selectMoodAction } from '../../actions/mood';
 
-const LastRetro = (props) => {
+const ImageList = (props) => (
+    <Col lg={12} xs={12} className='icon-align'>
+        {
+            images.map((image, index) => {
+                let isZoomed = classNames({
+                    'zoom': props.mood.id === index
+                });
+                return (
+                    <img key={index} src={image.name} className={isZoomed} alt={image.description}
+                        onClick={() => props.selectMood(image, index)} />
+                )
+            })
+        }
+    </Col>
+);
 
+const LastRetro = (props) => {
     return (
         <Element name="home" className="mood" >
             <Panel header='How did the last Sprint went for you:' bsStyle="primary">
-                <Col lg={12} xs={12} className='icon-align'>
-                    {
-                        images.map((image, index) => {
-                            let isZoomed = classNames({
-                                'zoom': props.mood.id === index
-                            });
-                            return (
-                                <img src={image.name} className={isZoomed} alt={image.description}
-                                    onClick={() => props.selectMood(image, index)} />
-                            )
-                        })
-                    }
-                </Col>
+                <ImageList {...props} />
             </Panel>
             <Col xs={1} xsOffset={11} >
                 <ButtonToolbar>

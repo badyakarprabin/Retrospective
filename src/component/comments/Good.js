@@ -37,7 +37,7 @@ const GoodField = (props) => {
           </ListGroupItem>
         </ListGroup>
         <Col xs={2} xsOffset={10} >
-          <Button bsStyle="success">Submit your review</Button>
+          <Button bsStyle="success" onClick={() => props.addGoodRowsAction({ isSubmitted: true })}>Submit your review</Button>
         </Col>
       </Panel>
       <Col xs={1} xsOffset={11} >
