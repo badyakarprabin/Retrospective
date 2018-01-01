@@ -21,6 +21,11 @@ const Header = () => {
                         Improvements
                     </Link>
                 </NavItem>
+                <NavItem eventKey={4}>
+                    <Link activeClass="active" to="course" spy={true} smooth={true} offset={-200} duration={500}>
+                        Course of Action
+                    </Link>
+                </NavItem>
             </Nav>
         </Navbar>
     );

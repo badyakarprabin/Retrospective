@@ -38,9 +38,7 @@ const GoodField = (props) => {
         </ListGroup>
         <Col xs={2} xsOffset={10} >
           <Button bsStyle="success" onClick={props.handleSubmit(props.submitResponse)} >
-            <Link activeClass="active" to="improvement" spy={true} smooth={true} offset={-100} duration={500}>
               Submit your review
-           </Link>
           </Button>
         </Col>
       </Panel>

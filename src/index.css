@@ -11,14 +11,17 @@ body {
   z-index: 9900;
 }
 
-.footer {
-  position: fixed;
-  top: 900px;
-  z-index: 9900;
+.list-group-item{
+  word-wrap: break-word;
 }
 
 .progressBar {
   margin-top: -30px;
+}
+
+.course {
+  margin-top: 150px;
+  height: 460px;
 }
 
 .mood {

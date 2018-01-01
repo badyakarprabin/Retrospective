@@ -1,9 +1,9 @@
 import React from 'react';
 import { compose, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
-import { Element } from 'react-scroll';
+import { Element, Link } from 'react-scroll';
 import { Field, reduxForm } from 'redux-form';
-import { Col, Button, Panel, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Col, Button, Panel, ListGroup, ListGroupItem, ButtonGroup, ButtonToolbar, Glyphicon } from 'react-bootstrap';
 
 import InputField from '../common/InputField';
 import { addImprovementRowsAction } from '../../actions/rows';
@@ -40,6 +40,17 @@ const ImprovementField = (props) => {
           <Button bsStyle="info" onClick={props.handleSubmit(props.submitResponse)}>Submit your review</Button>
         </Col>
       </Panel>
+      <Col xs={1} xsOffset={11} >
+        <ButtonToolbar>
+          <ButtonGroup>
+            <Button>
+              <Link activeClass="active" to="course" spy={true} smooth={true} offset={-100} duration={500}>
+                Next <Glyphicon glyph="arrow-right" />
+              </Link>
+            </Button>
+          </ButtonGroup>
+        </ButtonToolbar>
+      </Col>
     </Element >
   )
 }

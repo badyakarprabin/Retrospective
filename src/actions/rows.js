@@ -8,3 +8,7 @@ export const addGoodRowsAction = createAction(ADD_GOOD_ROWS);
 export const ADD_IMPROVEMENT_ROWS = 'ADD_IMPROVEMENT_ROWS';
 
 export const addImprovementRowsAction = createAction(ADD_IMPROVEMENT_ROWS);
+
+export const ADD_ACTION_ROWS = 'ADD_ACTION_ROWS';
+
+export const addCourseRowsAction = createAction(ADD_ACTION_ROWS);
