@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Element } from 'react-scroll';
+import { Element, Link } from 'react-scroll';
 import * as classNames from 'classnames';
+import { Col, Panel, ButtonGroup, ButtonToolbar, Glyphicon, Button } from 'react-bootstrap';
 import { compose, withHandlers } from 'recompose';
-import { Col, ControlLabel } from 'react-bootstrap';
 
 import { images } from '../../constant/images';
 import { selectMoodAction } from '../../actions/mood';
@@ -12,10 +12,7 @@ const LastRetro = (props) => {
 
     return (
         <Element name="home" className="mood" >
-            < div >
-                <Col lg={12} xs={12}>
-                    <ControlLabel>How did the last Sprint went for you:</ControlLabel>
-                </Col>
+            <Panel header='How did the last Sprint went for you:' bsStyle="primary">
                 <Col lg={12} xs={12} className='icon-align'>
                     {
                         images.map((image, index) => {
@@ -29,7 +26,18 @@ const LastRetro = (props) => {
                         })
                     }
                 </Col>
-            </div >
+            </Panel>
+            <Col xs={1} xsOffset={11} >
+                <ButtonToolbar>
+                    <ButtonGroup>
+                        <Button>
+                            <Link activeClass="active" to="good" spy={true} smooth={true} offset={-100} duration={500}>
+                                Next <Glyphicon glyph="arrow-right" />
+                            </Link>
+                        </Button>
+                    </ButtonGroup>
+                </ButtonToolbar>
+            </Col>
         </Element>
     )
 }

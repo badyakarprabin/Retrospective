@@ -1,9 +1,9 @@
 import React from 'react';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
-import { Element } from 'react-scroll';
+import { Element, Link } from 'react-scroll';
 import { Field, reduxForm } from 'redux-form';
-import { Col, Button, Panel } from 'react-bootstrap';
+import { Col, Button, Panel, ListGroup, ListGroupItem, ButtonGroup, ButtonToolbar, Glyphicon } from 'react-bootstrap';
 
 import InputField from '../common/InputField';
 import { addGoodRowsAction } from '../../actions/rows';
@@ -13,28 +13,44 @@ const GoodField = (props) => {
   return (
     <Element name="good" className="good">
       <Panel header='Mention good things :' bsStyle="success">
-        <Col xs={10} lg={10}>
-          <Field
-            name="details1"
-            component={InputField}
-            placeholder='What need right'
-          />
-          <Field
-            name="details2"
-            component={InputField}
-            placeholder='What need right'
-          />
-          <Field
-            name="details3"
-            component={InputField}
-            placeholder='What need right'
-          />
-        </Col>
+        <ListGroup fill>
+          <ListGroupItem>
+            <Field
+              name="good"
+              component={InputField}
+              placeholder='Mentions good things'
+            />
+          </ListGroupItem>
+          <ListGroupItem>
+            <Field
+              name="good1"
+              component={InputField}
+              placeholder='Mentions good things'
+            />
+          </ListGroupItem>
+          <ListGroupItem>
+            <Field
+              name="good2"
+              component={InputField}
+              placeholder='Mentions good things'
+            />
+          </ListGroupItem>
+        </ListGroup>
         <Col xs={2} xsOffset={10} >
-          <Button bsStyle="success">
-            Submit your review</Button>
+          <Button bsStyle="success">Submit your review</Button>
         </Col>
       </Panel>
+      <Col xs={1} xsOffset={11} >
+        <ButtonToolbar>
+          <ButtonGroup>
+            <Button>
+              <Link activeClass="active" to="improvement" spy={true} smooth={true} offset={-100} duration={500}>
+                Next <Glyphicon glyph="arrow-right" />
+              </Link>
+            </Button>
+          </ButtonGroup>
+        </ButtonToolbar>
+      </Col>
     </Element>
   )
 }
@@ -48,11 +64,6 @@ const mapDispatchToProps = {
 }
 
 const enhance = compose(
-  // withProps(() => ({
-  //   initialValues: {
-  //     details: 'dfdfdfdfdf',
-  //   }
-  // })),
 
   connect(mapStateToProps, mapDispatchToProps),
 

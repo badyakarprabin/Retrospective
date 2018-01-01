@@ -1,9 +1,6 @@
 import { SELECT_MOOD } from '../../actions/mood';
 
-const INITIAL_STATE = {
-    id: 0,
-    name: ''
-};
+const INITIAL_STATE = {};
 
 /**
  * Reducer function add rows
