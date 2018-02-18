@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bootstrap": "4.0.0-alpha.4",
+    "animate.css": "^3.6.1",
+    "bootstrap": "^4.0.0",
     "classnames": "^2.2.5",
     "react": "^16.2.0",
     "react-bootstrap": "^0.31.5",

@@ -1,14 +1,13 @@
 body {
   margin: 0;
   padding: 0;
+  text-align: center;
+  font-weight: bold;
   font-family: sans-serif;
 }
 
-.header {
-  border-bottom: 1px solid rgba(0,0,0,.12);
-  position: fixed;
-  top: 0;
-  z-index: 9900;
+.btn {
+  margin: 15px 0px 15px 0px !important; 
 }
 
 .list-group-item{
@@ -24,17 +23,13 @@ body {
   height: 460px;
 }
 
-.mood {
-  margin-top: 150px;
-  height: 960px;
+.section-container{
+  min-height: 200px;
+  padding: 20px;
 }
 
-.good {
-  height: 960px;
-}
-
-.improvement {  
-  height: 960px;
+.first-section{
+  margin-top: 73px;
 }
 
 img {
@@ -42,7 +37,7 @@ img {
 }
 
 img:hover {
-  zoom:1.2;
+  zoom:1.1;
 }
 
 .icon-align {

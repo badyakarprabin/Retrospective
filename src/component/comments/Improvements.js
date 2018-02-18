@@ -1,9 +1,7 @@
 import React from 'react';
 import { compose, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
-import { Element, Link } from 'react-scroll';
 import { Field, reduxForm } from 'redux-form';
-import { Col, Button, Panel, ListGroup, ListGroupItem, ButtonGroup, ButtonToolbar, Glyphicon } from 'react-bootstrap';
 
 import InputField from '../common/InputField';
 import { addImprovementRowsAction } from '../../actions/rows';
@@ -11,47 +9,33 @@ import { addImprovementRowsAction } from '../../actions/rows';
 const ImprovementField = (props) => {
 
   return (
-    <Element name="improvement" className="improvement">
-      <Panel header='Mention good things :' bsStyle="primary">
-        <ListGroup fill>
-          <ListGroupItem>
-            <Field
-              name="improvements"
-              component={InputField}
-              placeholder='What need improvement'
-            />
-          </ListGroupItem>
-          <ListGroupItem>
-            <Field
-              name="improvements1"
-              component={InputField}
-              placeholder='What need improvement'
-            />
-          </ListGroupItem>
-          <ListGroupItem>
-            <Field
-              name="improvements2"
-              component={InputField}
-              placeholder='What need improvement'
-            />
-          </ListGroupItem>
-        </ListGroup>
-        <Col xs={2} xsOffset={10} >
-          <Button bsStyle="info" onClick={props.handleSubmit(props.submitResponse)}>Submit your review</Button>
-        </Col>
-      </Panel>
-      <Col xs={1} xsOffset={11} >
-        <ButtonToolbar>
-          <ButtonGroup>
-            <Button>
-              <Link activeClass="active" to="course" spy={true} smooth={true} offset={-100} duration={500}>
-                Next <Glyphicon glyph="arrow-right" />
-              </Link>
-            </Button>
-          </ButtonGroup>
-        </ButtonToolbar>
-      </Col>
-    </Element >
+    <div className="section-container">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item disabled">Mention improvement things ?</li>
+
+        <li class="list-group-item list-group-item-warning">
+          <Field
+            name="improvements"
+            component={InputField}
+          />
+        </li>
+        <li class="list-group-item list-group-item-warning">
+          <Field
+            name="improvements1"
+            component={InputField}
+          />
+        </li>
+        <li class="list-group-item list-group-item-warning">
+          <Field
+            name="improvements2"
+            component={InputField}
+          />
+        </li>
+      </ul>
+      <div className='btn btn-warning' onClick={props.handleSubmit(props.submitResponse)} >
+        Next
+          </div>
+    </div >
   )
 }
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Element } from 'react-scroll';
 import { Field, reduxForm } from 'redux-form';
 import { compose, withHandlers } from 'recompose';
 import { Col, Button, Panel, ListGroup, ListGroupItem } from 'react-bootstrap';
@@ -8,43 +7,34 @@ import { Col, Button, Panel, ListGroup, ListGroupItem } from 'react-bootstrap';
 import InputField from '../common/InputField';
 import { addCourseRowsAction } from '../../actions/rows';
 
-const ActionField = (props) => {
-
-    return (
-        <Element name="course" className="good">
-            <Panel header='Mention course of action:' bsStyle="warning">
-                <ListGroup fill>
-                    <ListGroupItem>
-                        <Field
-                            name="good"
-                            component={InputField}
-                            placeholder='Course of ACtions'
-                        />
-                    </ListGroupItem>
-                    <ListGroupItem>
-                        <Field
-                            name="good1"
-                            component={InputField}
-                            placeholder='Course of ACtions'
-                        />
-                    </ListGroupItem>
-                    <ListGroupItem>
-                        <Field
-                            name="good2"
-                            component={InputField}
-                            placeholder='Course of ACtions'
-                        />
-                    </ListGroupItem>
-                </ListGroup>
-                <Col xs={2} xsOffset={10} >
-                    <Button bsStyle="warning" onClick={props.handleSubmit(props.submitResponse)} >
-                        Submit your review
-          </Button>
-                </Col>
-            </Panel>
-        </Element >
-    )
-}
+const ActionField = (props) => (
+    <div name="course" className="section-container">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item disabled">Mention course things?</li>
+            <li class="list-group-item list-group-item-primary">
+                <Field
+                    name="course"
+                    component={InputField}
+                />
+            </li>
+            <li class="list-group-item list-group-item-primary">
+                <Field
+                    name="course1"
+                    component={InputField}
+                />
+            </li>
+            <li class="list-group-item list-group-item-primary">
+                <Field
+                    name="course2"
+                    component={InputField}
+                />
+            </li>
+        </ul>
+        <div className='btn btn-primary' onClick={props.handleSubmit(props.submitResponse)} >
+            Submit your review
+            </div>
+    </div >
+);
 
 const mapStateToProps = state => ({
     rows: state.data.rows
