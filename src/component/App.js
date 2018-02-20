@@ -37,15 +37,19 @@ class App extends Component {
     return (
       <div className='container'>
         <Header />
-        <div className='progressBar'>
-          {!isCompleted && <ProgressBar active now={this.getProgressPercent()} />}
-        </div>
-        {!isCompleted && <LastRetro />}
-        {isCompleted && <Report />}
-        {!isCompleted && <GoodField />}
-        {!isCompleted && <ImprovementField />}
-        {!isCompleted && <ActionCourse />}
-      </div >
+        
+        <div className='scroll'>
+          <div className='progressBar'>
+            {!isCompleted && <ProgressBar active now={this.getProgressPercent()} />}
+          </div>
+          {!isCompleted && <LastRetro />}
+          {isCompleted && <Report />}
+          {!isCompleted && <GoodField />}
+          {!isCompleted && <ImprovementField />}
+          {!isCompleted && <ActionCourse />}
+        </div >
+        
+      </div>
     );
   }
 }

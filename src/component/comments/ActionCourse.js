@@ -8,22 +8,22 @@ import InputField from '../common/InputField';
 import { addCourseRowsAction } from '../../actions/rows';
 
 const ActionField = (props) => (
-    <div name="course" className="section-container">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item disabled">Mention course things?</li>
-            <li class="list-group-item list-group-item-primary">
+    <div id="course" className="section-container">
+        <ul className="list-group list-group-flush">
+            <li className="list-group-item disabled">Mention course things?</li>
+            <li className="list-group-item list-group-item-primary">
                 <Field
                     name="course"
                     component={InputField}
                 />
             </li>
-            <li class="list-group-item list-group-item-primary">
+            <li className="list-group-item list-group-item-primary">
                 <Field
                     name="course1"
                     component={InputField}
                 />
             </li>
-            <li class="list-group-item list-group-item-primary">
+            <li className="list-group-item list-group-item-primary">
                 <Field
                     name="course2"
                     component={InputField}

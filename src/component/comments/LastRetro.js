@@ -17,7 +17,7 @@ const ImageList = (props) => (
                     'zoom': props.mood.id === index
                 });
                 return (
-                    <span>
+                    <span key={index}>
                         <img title={image.description} src={image.name} className={isZoomed} alt={image.description}
                             onClick={() => props.selectMood(image, index)} />
                     </span>
@@ -34,8 +34,8 @@ const LastRetro = (props) => {
     });
     return (
         <div className="mood section-container first-section" >
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item disabled">How did the last Sprint went for you ?</li>
+            <ul className="list-group list-group-flush">
+                <li className="list-group-item disabled">How did the last Sprint went for you ?</li>
                 <ImageList {...props} />
             </ul>
             <div className={animate} >

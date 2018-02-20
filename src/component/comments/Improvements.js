@@ -9,23 +9,23 @@ import { addImprovementRowsAction } from '../../actions/rows';
 const ImprovementField = (props) => {
 
   return (
-    <div className="section-container">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item disabled">Mention improvement things ?</li>
+    <div id='improvements' className="section-container">
+      <ul className="list-group list-group-flush">
+        <li className="list-group-item disabled">Mention improvement things ?</li>
 
-        <li class="list-group-item list-group-item-warning">
+        <li className="list-group-item list-group-item-warning">
           <Field
             name="improvements"
             component={InputField}
           />
         </li>
-        <li class="list-group-item list-group-item-warning">
+        <li className="list-group-item list-group-item-warning">
           <Field
             name="improvements1"
             component={InputField}
           />
         </li>
-        <li class="list-group-item list-group-item-warning">
+        <li className="list-group-item list-group-item-warning">
           <Field
             name="improvements2"
             component={InputField}

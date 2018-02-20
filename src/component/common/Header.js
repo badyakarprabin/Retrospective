@@ -4,18 +4,18 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 const Header = () => {
     return (
-        <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-            <a class="navbar-brand" href="#">Retrospective</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+        <nav id='retro-navbar' className="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+            <a className="navbar-brand" href="#">Retrospective</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="#">Good</a>
-                    <a class="nav-item nav-link" href="#">Improvements</a>
-                    <a class="nav-item nav-link" href="#">Course</a>
+            {/* <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div className="navbar-nav">
+                    <a className="nav-item nav-link active" href="#good">Good</a>
+                    <a className="nav-item nav-link" href="#improvements">Improvements</a>
+                    <a className="nav-item nav-link" href="#course">Course</a>
                 </div>
-            </div>
+            </div> */}
             {/* <Nav>
                 <NavItem eventKey={1}>
                     <Link to="home" activeClass="active" spy={true} smooth={true} offset={-200} duration={500}>
